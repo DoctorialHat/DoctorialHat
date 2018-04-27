@@ -1,4 +1,4 @@
-package top.jacksonyang.doctorialhat.Activity;
+package top.jacksonyang.doctorialhat.Activity.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
