@@ -30,4 +30,5 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.6.1'
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'org.kymjs.kjframe:kjframe:2.6'
+    implementation 'com.android.support:gridlayout-v7:27.1.1'
 }
