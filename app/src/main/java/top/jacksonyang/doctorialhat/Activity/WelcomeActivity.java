@@ -1,7 +1,7 @@
-package top.jacksonyang.doctorialhat.Activity.Activity;
+package top.jacksonyang.doctorialhat.Activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
 
