@@ -19,8 +19,7 @@
         </activity>
         <activity android:name=".Activity.MeActivity" />
         <activity android:name=".Activity.FriendsActivity" />
-        <activity android:name=".Activity.QuizActivity" />
-        <activity android:name=".Activity.LoginActivity"></activity>
+        <activity android:name=".Activity.QuizActivity"></activity>
     </application>
 
 </manifest>
