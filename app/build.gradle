@@ -31,4 +31,5 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.2'
     implementation 'org.kymjs.kjframe:kjframe:2.6'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
 }
