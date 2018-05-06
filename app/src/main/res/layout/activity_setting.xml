@@ -186,6 +186,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout13">
 
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dip"
+            android:background="#FF909090" />
+
         <TextView
             android:id="@+id/textView12"
             android:layout_width="wrap_content"

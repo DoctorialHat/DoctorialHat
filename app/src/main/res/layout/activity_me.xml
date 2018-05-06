@@ -195,8 +195,8 @@
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -282,8 +282,8 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -302,7 +302,7 @@
             android:layout_marginTop="8dp"
             android:background="#ffffff"
             android:gravity="left"
-            android:text="设置"
+            android:text="设 置"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView5"
@@ -343,8 +343,8 @@
 
         <ImageView
             android:id="@+id/imageView6"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
@@ -403,8 +403,8 @@
 
         <ImageView
             android:id="@+id/imageView8"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
             android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
