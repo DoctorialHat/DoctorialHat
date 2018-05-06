@@ -8,4 +8,5 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowTranslucentStatus">true</item> <!-- 设置系统状态栏为半透明 -->
     </style>
+
 </resources>
