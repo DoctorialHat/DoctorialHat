@@ -14,7 +14,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="#ffffff"
     tools:layout_editor_absoluteY="81dp">
 
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <top.jacksonyang.doctorialhat.Activity.CircleImageView
-            android:id="@+id/imageView"
+            android:id="@+id/load_picture"
             android:layout_width="67dp"
             android:layout_height="55dp"
             android:layout_marginBottom="11dp"
@@ -54,7 +54,7 @@
             android:text="登录"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/register"
-            app:layout_constraintStart_toEndOf="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/load_picture"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
@@ -79,7 +79,7 @@
         android:layout_marginTop="4dp"
         android:text="|"
         android:textColor="#e1dfdf"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintStart_toEndOf="@+id/linearLayout7"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -91,7 +91,7 @@
         android:layout_marginTop="4dp"
         android:text="|"
         android:textColor="#e1dfdf"
-        android:textSize="35dp"
+        android:textSize="35sp"
         app:layout_constraintEnd_toStartOf="@+id/linearLayout9"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
@@ -227,9 +227,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
-            android:gravity="left"
+            android:gravity="start"
             android:text="我的信息"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView3"
             app:layout_constraintStart_toEndOf="@+id/imageView2"
@@ -237,7 +237,7 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    .<android.support.constraint.ConstraintLayout
+    <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
         android:layout_width="383dp"
         android:layout_height="25dp"
@@ -304,7 +304,7 @@
             android:background="#ffffff"
             android:gravity="left"
             android:text="设 置"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView5"
             app:layout_constraintStart_toEndOf="@+id/imageView4"
@@ -363,9 +363,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
-            android:gravity="left"
+            android:gravity="start"
             android:text="问题反馈"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView7"
             app:layout_constraintStart_toEndOf="@+id/imageView6"
@@ -423,9 +423,9 @@
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
-            android:gravity="left"
+            android:gravity="start"
             android:text="关于我们"
-            android:textSize="16dp"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageView9"
             app:layout_constraintStart_toEndOf="@+id/imageView8"
