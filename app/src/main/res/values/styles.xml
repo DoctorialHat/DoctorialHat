@@ -9,4 +9,9 @@
         <item name="android:windowTranslucentStatus">true</item> <!-- 设置系统状态栏为半透明 -->
     </style>
 
+    <!--checkbox样式-->
+    <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/checkbox_style</item>
+    </style>
+
 </resources>
