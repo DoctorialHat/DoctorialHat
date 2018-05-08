@@ -15,9 +15,11 @@ public class MeActivity extends AppCompatActivity {
     private Button myInformation;        //我的信息 按钮
     private Button setting;              //设置 按钮
     private Button bugReflect;           //问题反馈 按钮
+    private Button login;
+    private Button register;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
@@ -25,6 +27,8 @@ public class MeActivity extends AppCompatActivity {
         myInformation=(Button)findViewById(R.id.myinformation);
         setting=(Button)findViewById(R.id.setting);
         bugReflect=(Button)findViewById(R.id.bugreflect) ;
+        login=(Button)findViewById(R.id.login);
+        register=(Button)findViewById(R.id.register);
 
         //进入 问题反馈 页面
         bugReflect.setOnClickListener(new View.OnClickListener() {
@@ -59,6 +63,23 @@ public class MeActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent meToAboutUs = new Intent(MeActivity.this,AboutUs.class);
                 startActivity(meToAboutUs);
+            }
+        });
+
+        //进入登录页面
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent meToLogin=new Intent(MeActivity.this,LoginActivity.class);
+                startActivity(meToLogin);
+            }
+        });
+        //进入注册页面
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent meToRegister=new Intent(MeActivity.this,RegisterActivity.class);
+                startActivity(meToRegister);
             }
         });
 

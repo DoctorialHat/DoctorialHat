@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<litepal>
+    <dbname value="doctorialHat" ></dbname>
+
+    <version value="1" ></version>
+    <list>
+        <mapping class="top.jacksonyang.doctorialhat.Gson.User"></mapping>
+        <mapping class="top.jacksonyang.doctorialhat.Gson.MyBuff"></mapping>
+        <mapping class="top.jacksonyang.doctorialhat.Gson.Quiz"></mapping>
+        <mapping class="top.jacksonyang.doctorialhat.Gson.UserInfo"></mapping>
+    </list>
+</litepal>
