@@ -30,6 +30,12 @@
         <activity android:name=".Activity.QuizActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.NewMessageActivity"/>
+        <activity android:name=".Activity.AboutUs"/>
+        <activity android:name=".Activity.BugReflectActivity"/>
+        <activity android:name=".Activity.LoginActivity"/>
+        <activity android:name=".Activity.MyInfomationActivity"/>
+        <activity android:name=".Activity.SettingActivity"/>
+
     </application>
 
 </manifest>
