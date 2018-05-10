@@ -218,6 +218,7 @@
 
         <Button
             android:id="@+id/myinformation"
+            style="?android:attr/borderlessButtonStyle"
             android:layout_width="285dp"
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
