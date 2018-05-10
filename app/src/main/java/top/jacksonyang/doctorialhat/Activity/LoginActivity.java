@@ -4,18 +4,32 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import org.litepal.crud.DataSupport;
 
+import java.io.IOException;
 import java.util.List;
 
+import javax.security.auth.callback.Callback;
+
+import okhttp3.Call;
+import okhttp3.FormBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
 import top.jacksonyang.doctorialhat.Gson.User;
 import top.jacksonyang.doctorialhat.R;
+import top.jacksonyang.doctorialhat.Utils.WebUtils;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class LoginActivity extends AppCompatActivity {
@@ -53,18 +67,35 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"密码不能为空！",Toast.LENGTH_SHORT).show();
                     login.setClickable(false);
                 }
-                encodeBySHA encode=new encodeBySHA();
-                encodePasswd=encode.encodeBySHA(mpassword);
-                List<User> users= DataSupport.findAll(User.class);
-                if(!(users.get(1).equals(mphone))||!(users.get(2).equals(encodePasswd))){
-                    Toast.makeText(LoginActivity.this,"输入的手机号或密码错误！",Toast.LENGTH_SHORT).show();
-                    login.setClickable(false);
-                }
-                else{
-                    Toast.makeText(LoginActivity.this,"登录成功！",Toast.LENGTH_SHORT).show();
-                    Intent loginToMe =new Intent(LoginActivity.this,MeActivity.class);
-                    startActivity(loginToMe);
-                }
+
+               //发Post(含phone)请求到服务器并接受返回
+                RequestBody requestBody=new FormBody.Builder().add("phone",mphone).build();
+                WebUtils.sendPostOkHttpRequest("address", requestBody, new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.w("Login","传输失败！");
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        Gson gson=new Gson();
+                        encodeBySHA encode=new encodeBySHA();
+                        encodePasswd=encode.encodeBySHA(mpassword);
+                        //List<User> users= DataSupport.findAll(User.class);
+                        User users=gson.fromJson(response.body().string(),new TypeToken<User>(){}.getType());
+                        if(!(users.equals(mphone))||!(users.equals(encodePasswd))){
+                            Toast.makeText(LoginActivity.this,"输入的手机号或密码错误！",Toast.LENGTH_SHORT).show();
+                            login.setClickable(false);
+                        }
+                        else{
+                            Toast.makeText(LoginActivity.this,"登录成功！",Toast.LENGTH_SHORT).show();
+                            Intent loginToMe =new Intent(LoginActivity.this,MeActivity.class);
+                            startActivity(loginToMe);
+                        }
+                    }
+                });
+
+
             }
         });
     }
