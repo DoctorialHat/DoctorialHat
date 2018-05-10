@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,7 +13,7 @@ import top.jacksonyang.doctorialhat.R;
 
 public class SettingActivity extends AppCompatActivity {
 
-    private ImageView back;      //返回 按钮
+    private ImageButton back;      //返回 按钮
     private TextView newMessage;     //新消息通知 按钮
 
     @Override
@@ -21,7 +22,7 @@ public class SettingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         //返回 我的 页面
-        back=(ImageView)findViewById(R.id.back);
+        back= findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,7 +31,7 @@ public class SettingActivity extends AppCompatActivity {
         });
 
         //进入 新消息通知
-        newMessage=(TextView)findViewById(R.id.newmessage);
+        newMessage= findViewById(R.id.newmessage);
         newMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
