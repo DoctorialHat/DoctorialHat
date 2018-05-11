@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -27,9 +28,11 @@ public class RegisterActivity extends AppCompatActivity {
     private String mChapcha;
     private String encodePasswd;//加密后的密码
     //快速登录
-    private ImageView wechat;//微信
-    private ImageView oicq;//QQ
-    private ImageView mblog;//新浪微博
+    private ImageButton wechat;//微信
+    private ImageButton oicq;//QQ
+    private ImageButton mblog;//新浪微博
+
+    private ImageButton back;//返回 按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,9 +47,19 @@ public class RegisterActivity extends AppCompatActivity {
         mPhone = phone.getText().toString();
         mChapcha = captcha.getText().toString();
         //快速登录
-        wechat = (ImageView) findViewById(R.id.imageView11);
-        oicq = (ImageView) findViewById(R.id.imageView12);
-        mblog = (ImageView) findViewById(R.id.constraintLayout13);
+        wechat = (ImageButton) findViewById(R.id.wechat);
+        oicq = (ImageButton) findViewById(R.id.oicq);
+        mblog = (ImageButton) findViewById(R.id.mblog);
+
+        //返回按钮
+        back= findViewById(R.id.back) ;
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         //点击注册按钮
         register.setOnClickListener(new View.OnClickListener() {
             @Override

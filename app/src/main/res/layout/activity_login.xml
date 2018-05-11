@@ -4,15 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     tools:context=".Activity.LoginActivity">
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout7"
-        android:layout_width="301dp"
-        android:layout_height="410dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="68dp"
+        android:layout_width="325dp"
+        android:layout_height="450dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="88dp"
         android:background="#ffffff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.507"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -32,13 +36,13 @@
             android:id="@+id/view"
             android:layout_width="50dp"
             android:layout_height="1dp"
-            android:layout_marginBottom="68dp"
+            android:layout_marginBottom="100dp"
             android:layout_marginEnd="150dp"
             android:layout_marginStart="24dp"
             android:background="#33000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintHorizontal_bias="0.118"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -47,72 +51,75 @@
             android:layout_height="15dp"
             android:layout_marginBottom="64dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="8dp"
             android:text="快速登录"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view2"
-            app:layout_constraintHorizontal_bias="0.571"
+            app:layout_constraintHorizontal_bias="0.569"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/button"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintVertical_bias="0.292" />
 
         <View
             android:id="@+id/view2"
             android:layout_width="50dp"
             android:layout_height="1dp"
-            android:layout_marginBottom="68dp"
+            android:layout_marginBottom="100dp"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="150dp"
             android:background="#33000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.818"
+            app:layout_constraintHorizontal_bias="0.851"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageView11"
+            android:id="@+id/wechat"
             android:layout_width="29dp"
             android:layout_height="29dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="56dp"
+            android:layout_marginBottom="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:background="@mipmap/wechat_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-             />
+            app:layout_constraintEnd_toStartOf="@+id/oicp"
+            app:layout_constraintHorizontal_bias="0.386"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageView12"
+            android:id="@+id/oicp"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="20dp"
-            android:layout_marginStart="53dp"
+            android:layout_marginBottom="48dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
             android:background="@mipmap/qq_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView11"
-             />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/imageView13"
+            android:id="@+id/mblog"
             android:layout_width="29dp"
             android:layout_height="29dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="48dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="8dp"
             android:background="@mipmap/weibo_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageView12"
-            />
+            app:layout_constraintHorizontal_bias="0.605"
+            app:layout_constraintStart_toEndOf="@+id/oicp" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout8"
             android:layout_width="285dp"
-            android:layout_height="43dp"
+            android:layout_height="39dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView10">
 
@@ -167,9 +174,8 @@
             android:layout_height="89dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
 
@@ -213,11 +219,11 @@
 
             <CheckBox
                 android:id="@+id/remembercode"
+                style="@style/MyCheckBox"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:checked="true"
-                style="@style/MyCheckBox"
                 android:text="记住密码"
                 android:textSize="13dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -230,7 +236,7 @@
             android:layout_height="36dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginTop="16dp"
             android:background="@drawable/login_loginbutton"
             android:text="登录"
             app:layout_constraintEnd_toEndOf="parent"
@@ -240,17 +246,48 @@
 
     </android.support.constraint.ConstraintLayout>
 
-    <ImageButton
-        android:id="@+id/imageView14"
-        android:layout_width="36dp"
-        android:layout_height="38dp"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="12dp"
-        android:layout_marginTop="19dp"
-        android:background="@mipmap/cancel_icon"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="24dp"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout7"
-         />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="220dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:gravity="center"
+        android:text="登录"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbar2"
+        app:layout_constraintEnd_toEndOf="@+id/toolbar2"
+        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="@+id/toolbar2" />
+
+    <ImageButton
+        android:id="@+id/back"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/back_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/textView19"
+        app:layout_constraintStart_toStartOf="@+id/toolbar2"
+        app:layout_constraintTop_toTopOf="@+id/textView19"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

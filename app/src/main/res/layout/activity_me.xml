@@ -8,7 +8,9 @@
     android:layout_height="fill_parent"
     android:scrollbars="vertical"
     android:background="#f1f1f1"
-    android:fadingEdge="vertical">
+    android:fadingEdge="vertical"
+    tools:context=".Activity.MeActivity"
+    >
 
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -30,43 +32,40 @@
 
         <top.jacksonyang.doctorialhat.Activity.CircleImageView
             android:id="@+id/load_picture"
-            android:layout_width="67dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="11dp"
-            android:layout_marginEnd="22dp"
-            android:layout_marginStart="12dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginBottom="12dp"
+            android:layout_marginStart="24dp"
             android:layout_marginTop="11dp"
             android:clickable="true"
             android:src="@mipmap/changephoto_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/login"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-             />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/login"
-            android:layout_width="0dp"
+            android:layout_width="70dp"
             android:layout_height="43dp"
-            android:layout_marginEnd="27dp"
+            android:layout_marginStart="24dp"
             android:background="@drawable/me_loginbutton"
             android:text="登录"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/register"
             app:layout_constraintStart_toEndOf="@+id/load_picture"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.508" />
 
         <Button
             android:id="@+id/register"
-            android:layout_width="0dp"
+            android:layout_width="70dp"
             android:layout_height="43dp"
-            android:layout_marginEnd="85dp"
+            android:layout_marginStart="24dp"
             android:background="@drawable/me_loginbutton"
             android:text="注册"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/login"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.508" />
 
     </android.support.constraint.ConstraintLayout>
 
@@ -105,11 +104,12 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <Button
+        <TextView
             android:id="@+id/datijilu"
             android:layout_width="match_parent"
+            android:gravity="center"
             android:layout_height="35dp"
-            android:background="#ffffff"
+            android:textColor="#000000"
             android:text="答题记录" />
 
         <TextView
@@ -135,11 +135,12 @@
         app:layout_constraintStart_toEndOf="@+id/fengexian1"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <Button
+        <TextView
             android:id="@+id/zhengquelv"
             android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="#ffffff"
+            android:textColor="#000000"
+            android:gravity="center"
             android:text="生涯正确率" />
 
         <TextView
@@ -163,16 +164,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout">
 
-        <Button
+        <TextView
             android:id="@+id/paiming"
-            android:layout_width="64dp"
+            android:layout_width="match_parent"
             android:layout_height="35dp"
-            android:background="#ffffff"
+            android:textColor="#000000"
+            android:gravity="center"
             android:text="排名" />
 
         <TextView
             android:id="@+id/paiming_number"
-            android:layout_width="64dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="#ffffff"
             android:gravity="center_horizontal"
@@ -238,7 +240,7 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout2"
-        android:layout_width="383dp"
+        android:layout_width="match_parent"
         android:layout_height="25dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"

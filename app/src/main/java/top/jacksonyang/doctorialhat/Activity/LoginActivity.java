@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -40,6 +41,7 @@ public class LoginActivity extends AppCompatActivity {
     private String mpassword;
     private String encodePasswd;
     private CheckBox saveuser;
+    private ImageButton back;//返回按钮
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,6 +52,15 @@ public class LoginActivity extends AppCompatActivity {
         password=(EditText)findViewById(R.id.editText2);
         mphone=phone.getText().toString();
         mpassword=password.getText().toString();
+
+        //返回按钮
+        back=findViewById(R.id.back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         //点击登录按钮
         login.setOnClickListener(new View.OnClickListener() {
