@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
 
+        <!--状态栏半透明-->
+        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <!--CheckBox样式-->

@@ -10,10 +10,10 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout7"
         android:layout_width="341dp"
-        android:layout_height="474dp"
+        android:layout_height="528dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.518"
@@ -26,7 +26,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="32dp"
             android:adjustViewBounds="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -38,7 +38,6 @@
             android:layout_height="43dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imageView10">
@@ -96,7 +95,7 @@
             android:layout_height="43dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout10">
@@ -148,7 +147,6 @@
 
             <Button
                 android:id="@+id/get_captcha"
-                style="?android:attr/borderlessButtonStyle"
                 android:layout_width="70dp"
                 android:layout_height="28dp"
                 android:layout_marginBottom="8dp"
@@ -157,8 +155,8 @@
                 android:layout_marginTop="8dp"
                 android:background="@drawable/identifycode_getbutton"
                 android:text="获取验证码"
-                android:textColor="#b64eff"
-                android:textSize="12sp"
+                android:textColor="#ffffff"
+                android:textSize="11sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/register_captcha"
@@ -169,23 +167,23 @@
             android:id="@+id/textView3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginBottom="16dp"
             android:text="使用即为同意使用"
             android:textSize="12sp"
-            app:layout_constraintEnd_toStartOf="@+id/textView4"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/textView4" />
 
         <TextView
             android:id="@+id/textView4"
             android:layout_width="144dp"
             android:layout_height="17dp"
+            android:layout_marginBottom="16dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="8dp"
             android:text="《xx注册协议及版权声明》"
             android:textColor="#000000"
             android:textSize="12sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <android.support.constraint.ConstraintLayout
             android:id="@+id/constraintLayout10"
@@ -193,7 +191,7 @@
             android:layout_height="43dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout8">
@@ -249,28 +247,29 @@
 
         <Button
             android:id="@+id/register"
-            android:layout_width="80dp"
+            android:layout_width="253dp"
             android:layout_height="36dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="24dp"
             android:background="@drawable/login_loginbutton"
-            android:text="注册"
+            android:text="注 册"
+            android:textColor="#ffffff"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView3" />
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
 
         <View
             android:id="@+id/view"
             android:layout_width="50dp"
             android:layout_height="1dp"
-            android:layout_marginBottom="78dp"
+            android:layout_marginBottom="128dp"
             android:layout_marginEnd="150dp"
             android:layout_marginStart="24dp"
             android:background="#33000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.155"
+            app:layout_constraintHorizontal_bias="0.17"
             app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
@@ -283,28 +282,28 @@
             android:text="快速登录"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view2"
-            app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/register" />
+            app:layout_constraintTop_toBottomOf="@+id/register"
+            app:layout_constraintVertical_bias="0.441" />
 
         <View
             android:id="@+id/view2"
             android:layout_width="50dp"
             android:layout_height="1dp"
-            android:layout_marginBottom="78dp"
+            android:layout_marginBottom="128dp"
             android:layout_marginEnd="24dp"
             android:layout_marginStart="150dp"
             android:background="#33000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.846"
+            app:layout_constraintHorizontal_bias="0.897"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
             android:id="@+id/wechat_login"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="72dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@mipmap/wechat_icon"
@@ -317,7 +316,7 @@
             android:id="@+id/oicq_login"
             android:layout_width="30dp"
             android:layout_height="30dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="72dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@mipmap/qq_icon"
@@ -329,7 +328,7 @@
             android:id="@+id/mblog_login"
             android:layout_width="28dp"
             android:layout_height="28dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginBottom="72dp"
             android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
             android:background="@mipmap/weibo_icon"
@@ -344,6 +343,7 @@
         android:id="@+id/toolbar2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
         android:background="#ffffff"
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
