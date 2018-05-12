@@ -90,7 +90,7 @@
             app:layout_constraintVertical_bias="0.4" />
 
         <Switch
-            android:id="@+id/switch4"
+            android:id="@+id/allow_message"
             android:layout_width="44dp"
             android:layout_height="18dp"
             android:layout_marginBottom="8dp"
@@ -146,7 +146,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
-            android:id="@+id/switch5"
+            android:id="@+id/allow_sound"
             android:layout_width="44dp"
             android:layout_height="18dp"
             android:layout_marginBottom="8dp"
@@ -202,7 +202,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
-            android:id="@+id/switch6"
+            android:id="@+id/allow_viberate"
             android:layout_width="44dp"
             android:layout_height="18dp"
             android:layout_marginBottom="8dp"

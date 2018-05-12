@@ -223,7 +223,7 @@
             app:srcCompat="@mipmap/getin_icon" />
 
         <Button
-            android:id="@+id/myinformation"
+            android:id="@+id/my_information"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="285dp"
             android:layout_height="22dp"
@@ -359,7 +359,7 @@
             app:srcCompat="@mipmap/sendquestion_icon" />
 
         <Button
-            android:id="@+id/bugreflect"
+            android:id="@+id/bug_reflect"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="285dp"
             android:layout_height="22dp"
@@ -419,7 +419,7 @@
             app:srcCompat="@mipmap/about_icon" />
 
         <Button
-            android:id="@+id/guanyuwomen"
+            android:id="@+id/about_us"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="285dp"
             android:layout_height="22dp"

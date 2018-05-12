@@ -38,18 +38,21 @@ public class RegisterActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-        SendCaptcha = (Button) findViewById(R.id.button2);
-        register = (Button) findViewById(R.id.button);
-        phone = (EditText) findViewById(R.id.editText);
-        NewPasswd = (EditText) findViewById(R.id.editText4);
-        captcha = (EditText) findViewById(R.id.editText2);
+
+        //初始化
+        SendCaptcha = findViewById(R.id.get_captcha);
+        register = findViewById(R.id.register);
+        phone = findViewById(R.id.register_phone);
+        NewPasswd = findViewById(R.id.register_password);
+        captcha = findViewById(R.id.register_captcha);
+        wechat = findViewById(R.id.wechat_login);
+        oicq = findViewById(R.id.oicq_login);
+        mblog = findViewById(R.id.mblog_login);
+
         mNewPasswd = NewPasswd.getText().toString();
         mPhone = phone.getText().toString();
         mChapcha = captcha.getText().toString();
-        //快速登录
-        wechat = (ImageButton) findViewById(R.id.wechat);
-        oicq = (ImageButton) findViewById(R.id.oicq);
-        mblog = (ImageButton) findViewById(R.id.mblog);
+
 
         //返回按钮
         back= findViewById(R.id.back) ;

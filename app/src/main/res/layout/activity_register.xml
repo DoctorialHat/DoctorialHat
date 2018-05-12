@@ -64,13 +64,13 @@
                 android:layout_marginTop="8dp"
                 android:text="手机号"
                 android:textColor="#000000"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView15"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/register_phone"
                 android:layout_width="201dp"
                 android:layout_height="40dp"
                 android:layout_marginEnd="8dp"
@@ -80,7 +80,7 @@
                 android:hint="请输入手机号"
                 android:inputType="phone"
                 android:textColor="#868686"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -120,13 +120,13 @@
                 android:layout_marginTop="8dp"
                 android:text="验证码"
                 android:textColor="#000000"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView17"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editText2"
+                android:id="@+id/register_captcha"
                 android:layout_width="123dp"
                 android:layout_height="34dp"
                 android:layout_marginBottom="8dp"
@@ -136,14 +136,14 @@
                 android:hint="请输入验证码"
                 android:inputType="number"
                 android:textColor="#868686"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/textView8"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/get_captcha"
                 android:layout_width="57dp"
                 android:layout_height="28dp"
                 android:layout_marginBottom="8dp"
@@ -154,10 +154,10 @@
                 style="?android:attr/borderlessButtonStyle"
                 android:textColor="#2e71af"
                 android:text="获取验证码"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/editText2"
+                app:layout_constraintStart_toEndOf="@+id/register_captcha"
                 app:layout_constraintTop_toTopOf="parent" />
         </android.support.constraint.ConstraintLayout>
 
@@ -167,7 +167,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="使用即为同意使用"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toStartOf="@+id/textView4"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
 
@@ -179,7 +179,7 @@
             android:layout_marginTop="8dp"
             android:text="《xx注册协议及版权声明》"
             android:textColor="#000000"
-            android:textSize="12dp"
+            android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/constraintLayout9" />
 
@@ -215,13 +215,13 @@
                 android:layout_marginTop="8dp"
                 android:text="密码"
                 android:textColor="#000000"
-                android:textSize="13dp"
+                android:textSize="13sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/imageView16"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <EditText
-                android:id="@+id/editText4"
+                android:id="@+id/register_password"
                 android:layout_width="203dp"
                 android:layout_height="35dp"
                 android:layout_marginBottom="8dp"
@@ -232,7 +232,7 @@
                 android:hint="请输入密码"
                 android:inputType="textPassword"
                 android:textColor="#868686"
-                android:textSize="10dp"
+                android:textSize="10sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
@@ -242,7 +242,7 @@
         </android.support.constraint.ConstraintLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/register"
             android:layout_width="62dp"
             android:layout_height="36dp"
             android:layout_marginEnd="8dp"
@@ -279,7 +279,7 @@
             app:layout_constraintEnd_toStartOf="@+id/view2"
             app:layout_constraintHorizontal_bias="0.571"
             app:layout_constraintStart_toEndOf="@+id/view"
-            app:layout_constraintTop_toBottomOf="@+id/button" />
+            app:layout_constraintTop_toBottomOf="@+id/register" />
 
         <View
             android:id="@+id/view2"
@@ -295,7 +295,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/wechat"
+            android:id="@+id/wechat_login"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginBottom="20dp"
@@ -303,11 +303,11 @@
             android:layout_marginStart="8dp"
             android:background="@mipmap/wechat_icon"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/oicq"
+            app:layout_constraintEnd_toStartOf="@+id/oicq_login"
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/oicq"
+            android:id="@+id/oicq_login"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginBottom="20dp"
@@ -319,7 +319,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <ImageButton
-            android:id="@+id/mblog"
+            android:id="@+id/mblog_login"
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:layout_marginBottom="20dp"
@@ -328,7 +328,7 @@
             android:background="@mipmap/weibo_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/oicq" />
+            app:layout_constraintStart_toEndOf="@+id/oicq_login" />
 
     </android.support.constraint.ConstraintLayout>
 

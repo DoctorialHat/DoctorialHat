@@ -23,12 +23,12 @@ public class MeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
-        aboutUs = (Button) findViewById(R.id.guanyuwomen);
-        myInformation=(Button)findViewById(R.id.myinformation);
-        setting=(Button)findViewById(R.id.setting);
-        bugReflect=(Button)findViewById(R.id.bugreflect) ;
-        login=(Button)findViewById(R.id.login);
-        register=(Button)findViewById(R.id.register);
+        aboutUs = findViewById(R.id.about_us);
+        myInformation= findViewById(R.id.my_information);
+        setting= findViewById(R.id.setting);
+        bugReflect= findViewById(R.id.bug_reflect);
+        login= findViewById(R.id.login);
+        register= findViewById(R.id.register);
 
         //进入 问题反馈 页面
         bugReflect.setOnClickListener(new View.OnClickListener() {

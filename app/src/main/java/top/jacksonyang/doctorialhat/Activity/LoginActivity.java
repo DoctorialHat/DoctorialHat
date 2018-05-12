@@ -47,11 +47,12 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        login=(Button)findViewById(R.id.button);
-        phone=(EditText)findViewById(R.id.editText);
-        password=(EditText)findViewById(R.id.editText2);
-        mphone=phone.getText().toString();
-        mpassword=password.getText().toString();
+        login= findViewById(R.id.login);
+        phone= findViewById(R.id.login_phone);
+        password= findViewById(R.id.login_password);
+
+        mphone= phone.getText().toString();
+        mpassword= password.getText().toString();
 
         //返回按钮
         back=findViewById(R.id.back);

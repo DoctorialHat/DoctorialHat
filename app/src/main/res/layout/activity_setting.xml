@@ -103,7 +103,7 @@
             app:srcCompat="@mipmap/newmessage_icon" />
 
         <TextView
-            android:id="@+id/newmessage"
+            android:id="@+id/new_message_alert"
             android:layout_width="291dp"
             android:layout_height="21dp"
             android:layout_marginBottom="8dp"
@@ -160,7 +160,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
-            android:id="@+id/switch1"
+            android:id="@+id/friend_verify"
             android:layout_width="53dp"
             android:layout_height="32dp"
             android:layout_marginBottom="8dp"
@@ -205,7 +205,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Switch
-            android:id="@+id/switch2"
+            android:id="@+id/allow_stranger"
             android:layout_width="53dp"
             android:layout_height="32dp"
             android:layout_marginBottom="8dp"
@@ -272,13 +272,13 @@
             android:textColor="#000000"
             android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/switch3"
+            app:layout_constraintEnd_toStartOf="@+id/change_night_mode"
             app:layout_constraintStart_toEndOf="@+id/imageView21"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.4" />
 
         <Switch
-            android:id="@+id/switch3"
+            android:id="@+id/change_night_mode"
             android:layout_width="53dp"
             android:layout_height="32dp"
             android:layout_marginBottom="8dp"
@@ -306,7 +306,7 @@
     </android.support.constraint.ConstraintLayout>
 
     <Button
-        android:id="@+id/cleancache"
+        android:id="@+id/clean_cache"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="47dp"
@@ -322,7 +322,7 @@
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout16" />
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/log_out"
         style="?android:attr/borderlessButtonStyle"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
@@ -335,6 +335,6 @@
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cleancache" />
+        app:layout_constraintTop_toBottomOf="@+id/clean_cache" />
 
 </android.support.constraint.ConstraintLayout>

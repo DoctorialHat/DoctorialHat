@@ -31,7 +31,7 @@ public class SettingActivity extends AppCompatActivity {
         });
 
         //进入 新消息通知
-        newMessage= findViewById(R.id.newmessage);
+        newMessage= findViewById(R.id.new_message_alert);
         newMessage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
