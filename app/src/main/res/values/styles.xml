@@ -9,9 +9,14 @@
 
     </style>
 
-    <!--checkbox样式-->
+    <!--CheckBox样式-->
     <style name="MyCheckBox" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/checkbox_style</item>
     </style>
 
+    <!--EditText下划线颜色-->
+    <style name="MyEditText" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/darker_gray</item>
+        <item name="colorControlActivated">#85bcf1</item>
+    </style>
 </resources>
