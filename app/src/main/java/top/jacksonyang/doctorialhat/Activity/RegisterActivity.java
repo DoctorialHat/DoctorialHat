@@ -18,6 +18,7 @@ import top.jacksonyang.doctorialhat.R;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class RegisterActivity extends AppCompatActivity {
+
     private Button register;//注册按钮
     private Button SendCaptcha;//获取验证码按钮
     private EditText NewPasswd;//新密码

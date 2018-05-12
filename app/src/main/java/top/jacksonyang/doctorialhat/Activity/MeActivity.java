@@ -15,8 +15,9 @@ public class MeActivity extends AppCompatActivity {
     private Button myInformation;        //我的信息 按钮
     private Button setting;              //设置 按钮
     private Button bugReflect;           //问题反馈 按钮
-    private Button login;
-    private Button register;
+    private Button login;                //登录 按钮
+    private Button register;             //注册 按钮
+    private CircleImageView load_picture; //上传头像 按钮
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -27,8 +28,8 @@ public class MeActivity extends AppCompatActivity {
         myInformation= findViewById(R.id.my_information);
         setting= findViewById(R.id.setting);
         bugReflect= findViewById(R.id.bug_reflect);
-        login= findViewById(R.id.login);
-        register= findViewById(R.id.register);
+        login= findViewById(R.id.jump_to_login);
+        register= findViewById(R.id.jump_to_register);
 
         //进入 问题反馈 页面
         bugReflect.setOnClickListener(new View.OnClickListener() {

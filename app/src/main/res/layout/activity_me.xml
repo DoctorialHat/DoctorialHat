@@ -44,7 +44,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/login"
+            android:id="@+id/jump_to_login"
             android:layout_width="70dp"
             android:layout_height="43dp"
             android:layout_marginStart="24dp"
@@ -56,14 +56,14 @@
             app:layout_constraintVertical_bias="0.508" />
 
         <Button
-            android:id="@+id/register"
+            android:id="@+id/jump_to_register"
             android:layout_width="70dp"
             android:layout_height="43dp"
             android:layout_marginStart="24dp"
             android:background="@drawable/me_loginbutton"
             android:text="注册"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/login"
+            app:layout_constraintStart_toEndOf="@+id/jump_to_login"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.508" />
 
