@@ -26,7 +26,7 @@
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="34dp"
             android:adjustViewBounds="true"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -278,13 +278,13 @@
             android:layout_height="15dp"
             android:layout_marginBottom="64dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="8dp"
             android:text="快速登录"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/view2"
             app:layout_constraintStart_toEndOf="@+id/view"
             app:layout_constraintTop_toBottomOf="@+id/register"
-            app:layout_constraintVertical_bias="0.441" />
+            app:layout_constraintVertical_bias="0.42000002" />
 
         <View
             android:id="@+id/view2"
@@ -334,7 +334,7 @@
             android:background="@mipmap/weibo_icon"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.61"
+            app:layout_constraintHorizontal_bias="0.62"
             app:layout_constraintStart_toEndOf="@+id/oicq_login" />
 
     </android.support.constraint.ConstraintLayout>
