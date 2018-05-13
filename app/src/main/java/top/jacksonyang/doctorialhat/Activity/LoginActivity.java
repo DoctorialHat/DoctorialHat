@@ -34,6 +34,8 @@ import top.jacksonyang.doctorialhat.Utils.WebUtils;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class LoginActivity extends AppCompatActivity {
+    //服务器URL
+    public static final String SERVER_URL = "http://47.106.75.185/api/DoctorialHat";
     private Button login;//登录
     private EditText phone;//手机号码
     private EditText password;//密码
@@ -80,33 +82,6 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-               //发Post(含phone)请求到服务器并接受返回
-                RequestBody requestBody=new FormBody.Builder().add("phone",mphone).build();
-                WebUtils.sendPostOkHttpRequest("address", requestBody, new okhttp3.Callback() {
-                    @Override
-                    public void onFailure(Call call, IOException e) {
-                        Log.w("Login","传输失败！");
-                    }
-
-                    @Override
-                    public void onResponse(Call call, Response response) throws IOException {
-                        Gson gson=new Gson();
-                        encodeBySHA encode=new encodeBySHA();
-                        encodePasswd=encode.encodeBySHA(mpassword);
-                        //List<User> users= DataSupport.findAll(User.class);
-                        User users=gson.fromJson(response.body().string(),new TypeToken<User>(){}.getType());
-                        if(!(users.equals(mphone))||!(users.equals(encodePasswd))){
-                            Toast.makeText(LoginActivity.this,"输入的手机号或密码错误！",Toast.LENGTH_SHORT).show();
-                            login.setClickable(false);
-                        }
-                        else{
-                            Toast.makeText(LoginActivity.this,"登录成功！",Toast.LENGTH_SHORT).show();
-                            Intent loginToMe =new Intent(LoginActivity.this,MeActivity.class);
-                            startActivity(loginToMe);
-                        }
-                    }
-                });
-
 
             }
         });
@@ -123,5 +98,12 @@ public class LoginActivity extends AppCompatActivity {
          */
         String telRege = "[1][34578]\\d{9}";
         return phone.matches(telRege);
+    }
+
+    //在线程中处理登录逻辑
+    private boolean verifyLogin(String phone){
+        //逻辑明天做
+
+        return true;
     }
 }

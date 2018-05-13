@@ -76,7 +76,7 @@
             app:srcCompat="@mipmap/username_icon" />
 
         <Button
-            android:id="@+id/change_user_name"
+            android:id="@+id/change_nick_name"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="275dp"
             android:layout_height="24dp"
@@ -187,7 +187,7 @@
             app:srcCompat="@mipmap/changecode_icon" />
 
         <Button
-            android:id="@+id/change_code"
+            android:id="@+id/change_password"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="275dp"
             android:layout_height="24dp"
