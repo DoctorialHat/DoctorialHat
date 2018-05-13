@@ -10,6 +10,8 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import org.json.JSONObject;
+
 import java.math.BigInteger;
 import java.security.MessageDigest;
 
@@ -70,44 +72,45 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(mPhone)) {
                     Toast.makeText(RegisterActivity.this, "手机号不能为空！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
+                    return;
                 }
                 if (isPhoneNo(mPhone)) {
                     Toast.makeText(RegisterActivity.this, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
+                    return;
                 }
                 //密码最低6位，由字母和数字组合
                 if (TextUtils.isEmpty(mNewPasswd)) {
                     Toast.makeText(RegisterActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
+                    return;
                 }
                 if (isPassword(mNewPasswd)) {
                     Toast.makeText(RegisterActivity.this, "请按正确格式输入密码！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
+                    return;
                 }
                 if (TextUtils.isEmpty(mChapcha)) {
                     Toast.makeText(RegisterActivity.this, "验证码不能为空！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
+                    return;
                 }
-                if (isChapcha(mChapcha)) {
-                    Toast.makeText(RegisterActivity.this, "请输入6位验证码！", Toast.LENGTH_SHORT).show();
-                    register.setClickable(false);
-                }
-                //注册成功后，保存用户的手机密码到服务端
-                //此版本保存到本地
-                User user = new User();
-                user.setPhone(mPhone);
-                encodeBySHA encode = new encodeBySHA();
-                encodePasswd = encode.encodeBySHA(mNewPasswd);
-                user.setPassword(encodePasswd);
-                user.save();
+
+
+
+                Thread register = new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                });
+
+
             }
         });
+
+        //点击获取验证码按钮，服务端发送短信给手机，用户获取验证码
         SendCaptcha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //点击获取验证码按钮，服务端发送短信给手机，用户获取验证码
-                //代码
+
+
             }
         });
         //快速登录部分
@@ -131,10 +134,7 @@ public class RegisterActivity extends AppCompatActivity {
         return password.matches(pasRege);
     }
 
-    public static boolean isChapcha(String chapcha) {
-        String chaRege = "(?<![0-9])([0-9]{" + 6 + "})(?![0-9])";
-        return chapcha.matches(chaRege);
-    }
+
 }
 
 

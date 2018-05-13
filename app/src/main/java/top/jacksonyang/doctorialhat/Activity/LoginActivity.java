@@ -69,15 +69,15 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if(TextUtils.isEmpty(mphone)){
                     Toast.makeText(LoginActivity.this,"手机号不能为空！",Toast.LENGTH_SHORT).show();
-                    login.setClickable(false);
+                    return;
                 }
                 if (isPhoneNo(mphone)) {
                     Toast.makeText(LoginActivity.this, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
-                    login.setClickable(false);
+                    return;
                 }
                 if(TextUtils.isEmpty(mpassword)){
                     Toast.makeText(LoginActivity.this,"密码不能为空！",Toast.LENGTH_SHORT).show();
-                    login.setClickable(false);
+                    return;
                 }
 
                //发Post(含phone)请求到服务器并接受返回
@@ -111,6 +111,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
     public static boolean isPhoneNo(String phone) {
         /*
         13(老)号段：130、131、132、133、134、135、136、137、138、139

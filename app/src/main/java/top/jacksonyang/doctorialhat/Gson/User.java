@@ -8,12 +8,10 @@ public class User extends DataSupport {
     private String phone;
     private String password;
     private String nickName;
-
-    @SerializedName("description")
-    private String des;
+    private String description;
 
     private int rank;
-    private int winRating;
+    private double winRating;
     private int questionNum;
 
     public String getPhone() {
@@ -40,14 +38,6 @@ public class User extends DataSupport {
         this.nickName = nickName;
     }
 
-    public String getDes() {
-        return des;
-    }
-
-    public void setDes(String des) {
-        this.des = des;
-    }
-
     public int getRank() {
         return rank;
     }
@@ -56,19 +46,27 @@ public class User extends DataSupport {
         this.rank = rank;
     }
 
-    public int getWinRating() {
-        return winRating;
-    }
-
-    public void setWinRating(int winRating) {
-        this.winRating = winRating;
-    }
-
     public int getQuestionNum() {
         return questionNum;
     }
 
     public void setQuestionNum(int questionNum) {
         this.questionNum = questionNum;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public double getWinRating() {
+        return winRating;
+    }
+
+    public void setWinRating(double winRating) {
+        this.winRating = winRating;
     }
 }
