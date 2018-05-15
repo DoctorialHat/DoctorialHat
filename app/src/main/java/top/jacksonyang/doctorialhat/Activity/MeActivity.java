@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -21,6 +22,7 @@ import top.jacksonyang.doctorialhat.R;
 
 public class MeActivity extends AppCompatActivity {
 
+    private ConstraintLayout loginLayout;//登录注册按钮修改
     private Button aboutUs;              //关于我们 按钮
     private Button myInformation;        //我的信息 按钮
     private Button setting;              //设置 按钮
@@ -30,7 +32,6 @@ public class MeActivity extends AppCompatActivity {
     private CircleImageView load_picture; //上传头像 按钮
     //上传头像时需要的变量
     protected static final int choosePicture=0;
-    protected static final int takePicture=1;
     protected static final int cropPicture=3;
     protected static Uri pictureUri;
 
@@ -39,6 +40,7 @@ public class MeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
+        loginLayout = findViewById(R.id.login_layout);
         aboutUs = findViewById(R.id.about_us);
         myInformation= findViewById(R.id.my_information);
         setting= findViewById(R.id.setting);
@@ -109,33 +111,11 @@ public class MeActivity extends AppCompatActivity {
         });
 
     }
-    /**显示修改头像的对话框**/
+    /**上传头像**/
     protected void showChooseDialog(){
-        AlertDialog.Builder builder=new AlertDialog.Builder(this);
-        builder.setTitle("头像设置");
-        String[] items={"图库","相机"};
-        builder.setNegativeButton("取消",null);
-        builder.setItems(items, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which){
-                    case choosePicture://图库选择
-                        Intent openGalleryIntent=new Intent(Intent.ACTION_GET_CONTENT);
-                        openGalleryIntent.setType("image/*");
-                        startActivityForResult(openGalleryIntent,choosePicture);
-                        break;
-                    case takePicture://相机
-
-                        Intent openCameraIntent=new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                        pictureUri=Uri.fromFile(new File(Environment.getExternalStorageDirectory(),"image.jpg"));
-                        openCameraIntent.putExtra(MediaStore.EXTRA_OUTPUT,pictureUri);
-                        startActivityForResult(openCameraIntent,takePicture);
-
-                        break;
-                }
-            }
-        });
-        builder.create().show();
+        Intent openGalleryIntent=new Intent(Intent.ACTION_GET_CONTENT);
+        openGalleryIntent.setType("image/*");
+        startActivityForResult(openGalleryIntent,choosePicture);
     }
 
     @Override
@@ -143,9 +123,6 @@ public class MeActivity extends AppCompatActivity {
         super.onActivityResult(requestCode,resultCode,data);
         if(resultCode==RESULT_OK){
             switch (requestCode){
-                case takePicture:
-                    startPictureZoom(pictureUri);//开始图片裁剪
-                    break;
                 case choosePicture:
                     startPictureZoom(data.getData());
                     break;

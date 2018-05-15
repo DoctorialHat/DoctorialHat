@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.litepal.crud.DataSupport;
 
 import java.io.IOException;
@@ -30,7 +32,7 @@ import okhttp3.RequestBody;
 import okhttp3.Response;
 import top.jacksonyang.doctorialhat.Gson.User;
 import top.jacksonyang.doctorialhat.R;
-import top.jacksonyang.doctorialhat.Utils.WebUtils;
+import static top.jacksonyang.doctorialhat.Utils.WebUtils.sendGetOkHttpRequest;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class LoginActivity extends AppCompatActivity {
@@ -53,9 +55,6 @@ public class LoginActivity extends AppCompatActivity {
         phone= findViewById(R.id.login_phone);
         password= findViewById(R.id.login_password);
 
-        mphone= phone.getText().toString();
-        mpassword= password.getText().toString();
-
         //返回按钮
         back=findViewById(R.id.back);
         back.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +68,10 @@ public class LoginActivity extends AppCompatActivity {
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //获取手机号和密码
+                mphone= phone.getText().toString();
+                mpassword= password.getText().toString();
+
                 if(TextUtils.isEmpty(mphone)){
                     Toast.makeText(LoginActivity.this,"手机号不能为空！",Toast.LENGTH_SHORT).show();
                     return;
@@ -82,6 +85,35 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
+                sendGetOkHttpRequest(SERVER_URL + "?" + mphone, new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(Call call, IOException e) {
+                        Log.d("Error","Response error");
+                        e.printStackTrace();
+                    }
+
+                    @Override
+                    public void onResponse(Call call, Response response) throws IOException {
+                        final String JSONResponse = response.body().string();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try{
+                                    JSONObject UserResponse = new JSONObject(JSONResponse);
+                                    encodeBySHA encode = new encodeBySHA();
+                                    String encodePassword = encode.encodeBySHA(mpassword);
+                                    if(encodePassword.equals(UserResponse.getString("password"))){
+                                        Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
+
+                                    }
+                                } catch (JSONException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+
+                    }
+                });
 
             }
         });
@@ -100,9 +132,10 @@ public class LoginActivity extends AppCompatActivity {
         return phone.matches(telRege);
     }
 
-    //在线程中处理登录逻辑
-    private boolean verifyLogin(String phone){
-        //逻辑明天做
+    //判断登录信息是否正确
+    private boolean verifyLogin(String phone, String password){
+
+
 
         return true;
     }

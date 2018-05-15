@@ -1,4 +1,6 @@
 package top.jacksonyang.doctorialhat.Gson;
 
-public class BugReflect {
+import org.litepal.crud.DataSupport;
+
+public class BugReflect extends DataSupport {
 }

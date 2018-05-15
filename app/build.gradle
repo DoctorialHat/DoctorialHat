@@ -32,4 +32,5 @@ dependencies {
     implementation 'org.kymjs.kjframe:kjframe:2.6'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
+    implementation files('libs/jsms_android-1.2.0.jar')
 }

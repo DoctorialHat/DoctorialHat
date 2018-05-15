@@ -10,18 +10,21 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
-    <provider
-        android:name="android.support.v4.content.FileProvider"
-        android:authorities="${applicationId}.fileprovider"
-        android:exported="false"
-        android:grantUriPermissions="true"
-        tools:ignore="WrongManifestParent">
-        <!--元数据-->
-        <meta-data
-            android:name="android.support.FILE_PROVIDER_PATHS"
-            android:resource="@xml/file_provider_paths"/>
-    </provider>
+    <!--<provider-->
+        <!--android:name="android.support.v4.content.FileProvider"-->
+        <!--android:authorities="${applicationId}.fileprovider"-->
+        <!--android:exported="false"-->
+        <!--android:grantUriPermissions="true"-->
+        <!--tools:ignore="WrongManifestParent">-->
+        <!--&lt;!&ndash;元数据&ndash;&gt;-->
+        <!--<meta-data-->
+            <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
+            <!--android:resource="@xml/file_provider_paths"/>-->
+    <!--</provider>-->
 
 
     <application
@@ -32,6 +35,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="org.litepal.LitePalApplication">
+        <meta-data android:name="JPUSH_APPKEY" android:value="8d5429074317fbb69794fa2d"/>
         <activity android:name=".Activity.WelcomeActivity">
             android:screenOrientation="portrait"
             <intent-filter>
