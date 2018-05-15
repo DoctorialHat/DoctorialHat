@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="top.jacksonyang.doctorialhat">
 
     <!-- 权限说明，获取网络权限，获取外部存储权限，震动权限，相机权限，蓝牙权限 -->
@@ -8,6 +9,20 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <provider
+        android:name="android.support.v4.content.FileProvider"
+        android:authorities="${applicationId}.fileprovider"
+        android:exported="false"
+        android:grantUriPermissions="true"
+        tools:ignore="WrongManifestParent">
+        <!--元数据-->
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_provider_paths"/>
+    </provider>
+
 
     <application
         android:allowBackup="true"
