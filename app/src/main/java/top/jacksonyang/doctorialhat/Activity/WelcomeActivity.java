@@ -14,7 +14,7 @@ public class WelcomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
-        SMSSDK.getInstance().initSdk(WelcomeActivity.this);
+//        SMSSDK.getInstance().initSdk(WelcomeActivity.this);
         Intent intent=new Intent(WelcomeActivity.this,MeActivity.class);
         startActivity(intent);
     }

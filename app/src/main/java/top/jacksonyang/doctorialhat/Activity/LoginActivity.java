@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.litepal.crud.DataSupport;
@@ -33,11 +34,12 @@ import okhttp3.Response;
 import top.jacksonyang.doctorialhat.Gson.User;
 import top.jacksonyang.doctorialhat.R;
 import static top.jacksonyang.doctorialhat.Utils.WebUtils.sendGetOkHttpRequest;
+
+import top.jacksonyang.doctorialhat.Utils.Constants;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class LoginActivity extends AppCompatActivity {
-    //服务器URL
-    public static final String SERVER_URL = "http://47.106.75.185/api/DoctorialHat";
+
     private Button login;//登录
     private EditText phone;//手机号码
     private EditText password;//密码
@@ -76,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(LoginActivity.this,"手机号不能为空！",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if (isPhoneNo(mphone)) {
+                if (!isPhoneNo(mphone)) {
                     Toast.makeText(LoginActivity.this, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -85,7 +87,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                sendGetOkHttpRequest(SERVER_URL + "?" + mphone, new okhttp3.Callback() {
+                sendGetOkHttpRequest(Constants.SERVER+"/user" + "/?" + "phone=" + mphone, new okhttp3.Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         Log.d("Error","Response error");
@@ -93,21 +95,33 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                     @Override
-                    public void onResponse(Call call, Response response) throws IOException {
+                    public void onResponse(Call call, final Response response) throws IOException {
                         final String JSONResponse = response.body().string();
+                        Log.d("Response", JSONResponse);
                         runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                try{
-                                    JSONObject UserResponse = new JSONObject(JSONResponse);
-                                    encodeBySHA encode = new encodeBySHA();
-                                    String encodePassword = encode.encodeBySHA(mpassword);
-                                    if(encodePassword.equals(UserResponse.getString("password"))){
-                                        Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
-
+                                if(TextUtils.isEmpty(JSONResponse)){
+                                    Toast.makeText(LoginActivity.this,"该手机号未注册,请先进行注册",Toast.LENGTH_SHORT).show();
+                                    Intent toRegister = new Intent(LoginActivity.this,RegisterActivity.class);
+                                    startActivity(toRegister);
+                                } else{
+                                    try{
+                                        JSONObject UserResponse = new JSONObject(JSONResponse);
+                                        encodeBySHA encode = new encodeBySHA();
+                                        String encodePassword = encode.encodeBySHA(mpassword);
+                                        if(encodePassword.equals(UserResponse.getString("password"))){
+                                            Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
+                                            Intent backMe = new Intent(LoginActivity.this,MeActivity.class);
+                                            startActivity(backMe);
+                                        } else {
+                                            Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_SHORT).show();
+                                            password.getText().clear();
+                                            password.requestFocus();
+                                        }
+                                    } catch (JSONException e){
+                                        e.printStackTrace();
                                     }
-                                } catch (JSONException e){
-                                    e.printStackTrace();
                                 }
                             }
                         });

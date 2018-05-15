@@ -12,7 +12,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import static top.jacksonyang.doctorialhat.Activity.LoginActivity.SERVER_URL;
 import static top.jacksonyang.doctorialhat.Utils.WebUtils.sendPostOkHttpRequest;
 
 import org.json.JSONException;
@@ -24,16 +23,18 @@ import java.security.MessageDigest;
 import java.util.Timer;
 import java.util.TimerTask;
 
-import cn.jpush.sms.SMSSDK;
-import cn.jpush.sms.listener.SmscheckListener;
-import cn.jpush.sms.listener.SmscodeListener;
+//import cn.jpush.sms.SMSSDK;
+//import cn.jpush.sms.listener.SmscheckListener;
+//import cn.jpush.sms.listener.SmscodeListener;
 import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.FormBody;
+import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okhttp3.Response;
 import top.jacksonyang.doctorialhat.Gson.User;
 import top.jacksonyang.doctorialhat.R;
+import top.jacksonyang.doctorialhat.Utils.Constants;
 import top.jacksonyang.doctorialhat.Utils.encodeBySHA;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -89,41 +90,53 @@ public class RegisterActivity extends AppCompatActivity {
                 //获取输入
                 mNewPasswd = NewPasswd.getText().toString();
                 mPhone = phone.getText().toString();
-                mChapcha = captcha.getText().toString();
+//                mChapcha = captcha.getText().toString();
 
                 //判断是否为空和错误
                 if (TextUtils.isEmpty(mPhone)) {
                     Toast.makeText(RegisterActivity.this, "手机号不能为空！", Toast.LENGTH_SHORT).show();
-                    return;
+                    phone.getText().clear();
+                    phone.requestFocus();
                 }
                 if (!isPhoneNo(mPhone)) {
                     Toast.makeText(RegisterActivity.this, "请输入正确的手机号！", Toast.LENGTH_SHORT).show();
-                    return;
+                    phone.getText().clear();
+                    phone.requestFocus();
                 }
+
                 //密码最低6位，由字母和数字组合
                 if (TextUtils.isEmpty(mNewPasswd)) {
                     Toast.makeText(RegisterActivity.this, "密码不能为空！", Toast.LENGTH_SHORT).show();
-                    return;
+                    NewPasswd.getText().clear();
+                    NewPasswd.requestFocus();
                 }
                 if (!isPassword(mNewPasswd)) {
                     Toast.makeText(RegisterActivity.this, "请按正确格式输入密码！", Toast.LENGTH_SHORT).show();
-                    return;
+                    NewPasswd.getText().clear();
+                    NewPasswd.requestFocus();
                 }
-                if (TextUtils.isEmpty(mChapcha)) {
-                    Toast.makeText(RegisterActivity.this, "验证码不能为空！", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+//                if (TextUtils.isEmpty(mChapcha)) {
+//                    Toast.makeText(RegisterActivity.this, "验证码不能为空！", Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
 
-                //验证验证码
-                checkCaptcha(mPhone,mChapcha);
+//                //验证验证码
+//                checkCaptcha(mPhone,mChapcha);
 
                 //加密密码
                 encodeBySHA encode = new encodeBySHA();
                 String encodePassword = encode.encodeBySHA(mNewPasswd);
                 //封装手机号密码到JSON中
-                RequestBody requestBody = new FormBody.Builder().add("phone",mPhone).add("password",encodePassword).build();
+                JSONObject requestBody = new JSONObject();
+                try{
+                    requestBody.put("phone",mPhone);
+                    requestBody.put("password",encodePassword);
+                } catch (JSONException e){
+                    e.printStackTrace();
+                }
+
                 //发送HTTP请求
-                sendPostOkHttpRequest(SERVER_URL+"/user", requestBody, new Callback() {
+                sendPostOkHttpRequest(Constants.SERVER + "/user", requestBody, new Callback() {
                     @Override
                     public void onFailure(Call call, IOException e) {
                         Log.d("Error","注册用户名发生错误,请重试");
@@ -138,42 +151,50 @@ public class RegisterActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(Call call, Response response) throws IOException {
-                        try{
-                            final JSONObject JSONResponse = new JSONObject(response.body().string());
-                            User newUser = new User();
-                            newUser.setPhone(JSONResponse.getString("phone"));
-                            newUser.setPassword(JSONResponse.getString("password"));
-                            newUser.setNickName(JSONResponse.getString("nickName"));
-                            newUser.setDescription(JSONResponse.getString("description"));
-                            newUser.setRank(JSONResponse.getInt("rank"));
-                            newUser.setQuestionNum(JSONResponse.getInt("questionNum"));
-                            newUser.setWinRating(JSONResponse.getDouble("winRating"));
-                            newUser.save();
-                            Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
-                            Intent toMe = new Intent(RegisterActivity.this,MeActivity.class);
-                            startActivity(toMe);
-                        } catch (JSONException e){
-                            e.printStackTrace();
-                        }
+                        final String responseText = response.body().string();
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                Log.d("debug","返回包为"+responseText);
+                                try{
+                                    JSONObject JSONResponse = new JSONObject(responseText);
+                                    User newUser = new User();
+                                    newUser.setPhone(JSONResponse.getString("phone"));
+                                    newUser.setPassword(JSONResponse.getString("password"));
+                                    newUser.setNickName(JSONResponse.getString("nickName"));
+                                    newUser.setDescription(JSONResponse.getString("description"));
+                                    newUser.setRank(JSONResponse.getInt("rank"));
+                                    newUser.setQuestionNum(JSONResponse.getInt("questionNum"));
+                                    newUser.setWinRating(JSONResponse.getDouble("winRating"));
+                                    newUser.save();
+                                    Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
+                                    Intent toMe = new Intent(RegisterActivity.this,MeActivity.class);
+                                    startActivity(toMe);
+                                } catch (JSONException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
+
                     }
                 });
             }
         });
 
-        //点击获取验证码按钮，服务端发送短信给手机，用户获取验证码
-        SendCaptcha.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mPhone = phone.getText().toString();
-                if(!TextUtils.isEmpty(mPhone)){
-                    getCaptcha();
-                } else{
-                    Toast.makeText(RegisterActivity.this,"请输入手机号",Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
-            }
-        });
+//        //点击获取验证码按钮，服务端发送短信给手机，用户获取验证码
+//        SendCaptcha.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                mPhone = phone.getText().toString();
+//                if(!TextUtils.isEmpty(mPhone)){
+//                    getCaptcha();
+//                } else{
+//                    Toast.makeText(RegisterActivity.this,"请输入手机号",Toast.LENGTH_SHORT).show();
+//                    return;
+//                }
+//
+//            }
+//        });
     }
 
     public static boolean isPhoneNo(String phone) {
@@ -193,83 +214,83 @@ public class RegisterActivity extends AppCompatActivity {
         return password.matches(pasRege);
     }
 
-    //获取验证码的函数
-    private void getCaptcha(){
-        SendCaptcha.setClickable(false);
-        startTimer();
-        SMSSDK.getInstance().getSmsCodeAsyn(mPhone, 1 + "", new SmscodeListener() {
-            @Override
-            public void getCodeSuccess(String s) {
-                Toast.makeText(RegisterActivity.this,"获取验证码成功",Toast.LENGTH_SHORT).show();
-                Log.d("Success","手机号"+mPhone+"用户获取验证码成功,验证码为"+s);
-            }
-
-            @Override
-            public void getCodeFail(int i, String s) {
-                stopTimer();
-                Toast.makeText(RegisterActivity.this,"获取验证码失败,请重试",Toast.LENGTH_SHORT).show();
-                Log.e("Error","手机号"+mPhone+"用户获取验证码失败,失败号"+i+"失败原因为"+s);
-            }
-        });
-    }
-
-    //检验验证码的函数
-    private void checkCaptcha(String phone, String captcha){
-        SMSSDK.getInstance().checkSmsCode(phone, captcha, new SmscheckListener() {
-            @Override
-            public void checkCodeSuccess(final String code) {
-                Log.d("Success","验证码正确");
-            }
-
-            @Override
-            public void checkCodeFail(int errCode, final String errMsg) {
-                Log.d("Error","验证码错误"+"错误代码"+errCode+"错误原因"+errMsg);
-                Toast.makeText(RegisterActivity.this,"错误原因"+errMsg,Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
-
-    //开启定时器任务
-    private void startTimer(){
-        remainTime = (int) SMSSDK.getInstance().getIntervalTime()/1000;
-        SendCaptcha.setText(remainTime+"s");
-        if(timerTask == null){
-            timerTask = new TimerTask() {
-                @Override
-                public void run() {
-                    runOnUiThread(new Runnable() {
-                        @Override
-                        public void run() {
-                            remainTime--;
-                            if(remainTime<=0){
-                                stopTimer();
-                                return;
-                            }
-                            SendCaptcha.setText(remainTime+"s");
-                        }
-                    });
-                }
-            };
-        }
-        if(timer == null){
-            timer = new Timer();
-        }
-        timer.schedule(timerTask,1000,1000);
-    }
-
-    //关闭定时器任务
-    private void stopTimer(){
-        if(timerTask!=null){
-            timerTask.cancel();
-            timerTask = null;
-        }
-        if(timer!=null){
-            timer.cancel();
-            timer = null;
-        }
-        SendCaptcha.setText("获取验证码");
-        SendCaptcha.setClickable(true);
-    }
+//    //获取验证码的函数
+//    private void getCaptcha(){
+//        SendCaptcha.setClickable(false);
+//        startTimer();
+//        SMSSDK.getInstance().getSmsCodeAsyn(mPhone, 1 + "", new SmscodeListener() {
+//            @Override
+//            public void getCodeSuccess(String s) {
+//                Toast.makeText(RegisterActivity.this,"获取验证码成功",Toast.LENGTH_SHORT).show();
+//                Log.d("Success","手机号"+mPhone+"用户获取验证码成功,验证码为"+s);
+//            }
+//
+//            @Override
+//            public void getCodeFail(int i, String s) {
+//                stopTimer();
+//                Toast.makeText(RegisterActivity.this,"获取验证码失败,请重试",Toast.LENGTH_SHORT).show();
+//                Log.e("Error","手机号"+mPhone+"用户获取验证码失败,失败号"+i+"失败原因为"+s);
+//            }
+//        });
+//    }
+//
+//    //检验验证码的函数
+//    private void checkCaptcha(String phone, String captcha){
+//        SMSSDK.getInstance().checkSmsCode(phone, captcha, new SmscheckListener() {
+//            @Override
+//            public void checkCodeSuccess(final String code) {
+//                Log.d("Success","验证码正确");
+//            }
+//
+//            @Override
+//            public void checkCodeFail(int errCode, final String errMsg) {
+//                Log.d("Error","验证码错误"+"错误代码"+errCode+"错误原因"+errMsg);
+//                Toast.makeText(RegisterActivity.this,"错误原因"+errMsg,Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
+//
+//    //开启定时器任务
+//    private void startTimer(){
+//        remainTime = (int) SMSSDK.getInstance().getIntervalTime()/1000;
+//        SendCaptcha.setText(remainTime+"s");
+//        if(timerTask == null){
+//            timerTask = new TimerTask() {
+//                @Override
+//                public void run() {
+//                    runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            remainTime--;
+//                            if(remainTime<=0){
+//                                stopTimer();
+//                                return;
+//                            }
+//                            SendCaptcha.setText(remainTime+"s");
+//                        }
+//                    });
+//                }
+//            };
+//        }
+//        if(timer == null){
+//            timer = new Timer();
+//        }
+//        timer.schedule(timerTask,1000,1000);
+//    }
+//
+//    //关闭定时器任务
+//    private void stopTimer(){
+//        if(timerTask!=null){
+//            timerTask.cancel();
+//            timerTask = null;
+//        }
+//        if(timer!=null){
+//            timer.cancel();
+//            timer = null;
+//        }
+//        SendCaptcha.setText("获取验证码");
+//        SendCaptcha.setClickable(true);
+//    }
 }
 
 

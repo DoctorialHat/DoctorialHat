@@ -1,5 +1,6 @@
 package top.jacksonyang.doctorialhat.Activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,15 +23,16 @@ public class MyInfomationActivity extends AppCompatActivity {
 
         //初始化所有View
         back = findViewById(R.id.back);
-        changeNickName = findViewById(R.id.change_nick_name);
+        changeNickName = findViewById(R.id.change_information);
         changePhoneNumber = findViewById(R.id.change_phone_number);
         changePassword = findViewById(R.id.change_password);
 
-        //跳转修改昵称活动
+        //跳转修改个人信息活动
         changeNickName.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent toChangeInfo = new Intent(MyInfomationActivity.this,ChangeInformationActivity.class);
+                startActivity(toChangeInfo);
             }
         });
 
@@ -38,7 +40,8 @@ public class MyInfomationActivity extends AppCompatActivity {
         changePhoneNumber.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent toChangePhone = new Intent(MyInfomationActivity.this,ChangePhoneNumberActivity.class);
+                startActivity(toChangePhone);
             }
         });
 
@@ -46,7 +49,8 @@ public class MyInfomationActivity extends AppCompatActivity {
         changePassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent toChangeCode = new Intent(MyInfomationActivity.this,ChangeCodeActivity.class);
+                startActivity(toChangeCode);
             }
         });
 

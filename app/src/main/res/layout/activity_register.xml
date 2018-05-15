@@ -229,7 +229,7 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:ems="10"
-                android:hint="请输入密码"
+                android:hint="密码最低6位，由字母和数字组合"
                 android:inputType="textPassword"
                 android:textCursorDrawable="@drawable/cursor_color"
                 android:textSize="13sp"
