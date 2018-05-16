@@ -25,7 +25,9 @@ MobSDK {
     appKey "25d3706b00232"
     appSecret "91f2637e9719c2d667138ff4a53bfabe"
 
-    SMSSDK {}
+    SMSSDK {
+        gui false
+    }
 }
 
 dependencies {
@@ -42,4 +44,8 @@ dependencies {
     implementation 'org.kymjs.kjframe:kjframe:2.6'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
+//    implementation ('com.alibaba.android:vlayout:1.2.8@aar') {
+//        transitive = true
+//    }
+//    implementation 'com.qmuiteam:qmui:1.1.2'
 }
