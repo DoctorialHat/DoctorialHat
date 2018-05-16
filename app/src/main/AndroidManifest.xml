@@ -35,7 +35,6 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name="org.litepal.LitePalApplication">
-        <!--<meta-data android:name="JPUSH_APPKEY" android:value="a606616a544634c715e96891"/>-->
         <activity android:name=".Activity.WelcomeActivity">
             android:screenOrientation="portrait"
             <intent-filter>
