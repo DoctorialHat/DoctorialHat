@@ -20,7 +20,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="#ffffff"
+    android:background="#f1f1f1"
     tools:layout_editor_absoluteY="81dp">
 
     <android.support.v7.widget.Toolbar
@@ -30,8 +30,6 @@
         android:layout_marginTop="24dp"
         android:background="#ffffff"
         android:fitsSystemWindows="true"
-        android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,9 +55,7 @@
     <android.support.constraint.ConstraintLayout
         android:id="@+id/login_layout"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="209dp"
         android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -68,166 +64,213 @@
 
         <top.jacksonyang.doctorialhat.Activity.CircleImageView
             android:id="@+id/load_picture"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_marginBottom="12dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="11dp"
+            android:layout_marginTop="8dp"
             android:clickable="true"
             android:src="@mipmap/changephoto_icon"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/jump_to_login"
-            android:layout_width="70dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="32dp"
-            android:background="@drawable/me_loginbutton"
-            android:text="登录"
-            app:layout_constraintBottom_toBottomOf="parent"
+        <TextView
+            android:id="@+id/nickname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:text="帅哥安"
+            android:textColor="#000000"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/sex"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view3"
+            android:layout_width="250dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            android:background="#d2d2d2"
+            app:layout_constraintStart_toEndOf="@+id/load_picture"
+            app:layout_constraintTop_toBottomOf="@+id/nickname">
+
+        </View>
+
+        <ImageView
+            android:id="@+id/sex"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             app:layout_constraintStart_toEndOf="@+id/load_picture"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.508" />
+            app:srcCompat="@mipmap/sex_icon" />
 
-        <Button
-            android:id="@+id/jump_to_register"
-            android:layout_width="70dp"
-            android:layout_height="43dp"
-            android:layout_marginStart="24dp"
-            android:background="@drawable/me_loginbutton"
-            android:text="注册"
+        <TextView
+            android:id="@+id/introduction"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:ellipsize="none"
+            android:inputType="textMultiLine"
+            android:maxLines="10"
+            android:singleLine="false"
+            android:text="我叫陈麒安跟我念一遍，什么？大声点听不见！"
+            android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/jump_to_login"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.508" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView28" />
+
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            android:text="广东珠海"
+            android:textColor="#000000"
+            app:layout_constraintStart_toEndOf="@+id/location"
+            app:layout_constraintTop_toBottomOf="@+id/load_picture" />
+
+        <ImageView
+            android:id="@+id/location"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="28dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/load_picture"
+            app:srcCompat="@mipmap/location_icon" />
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout34"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/load_picture"
+            app:layout_constraintTop_toBottomOf="@+id/view3">
+
+            <TextView
+                android:id="@+id/datijilu"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="答题记录"
+                android:textColor="#848484"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/datijilu_number" />
+
+            <TextView
+                android:id="@+id/datijilu_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:id="@+id/constraintLayout35"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout34"
+            app:layout_constraintTop_toBottomOf="@+id/view3">
+
+            <TextView
+                android:id="@+id/paiming"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="排名"
+                android:textColor="#848484"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/paiming_number" />
+
+            <TextView
+                android:id="@+id/paiming_number"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:gravity="start"
+                android:text="0"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintStart_toEndOf="@+id/constraintLayout35"
+            app:layout_constraintTop_toBottomOf="@+id/view3">
+
+            <TextView
+                android:id="@+id/zhengquelv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="1dp"
+                android:gravity="start"
+                android:text="生涯正确率"
+                android:textColor="#848484"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/zhengquelv_number" />
+
+            <TextView
+                android:id="@+id/zhengquelv_number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="start"
+                android:text="0%"
+                android:textColor="#000000"
+                android:textSize="17sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </android.support.constraint.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/textView28"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp"
+            android:text="个人简介"
+            android:textColor="#646464"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
 
     </android.support.constraint.ConstraintLayout>
-
-    <TextView
-        android:id="@+id/fengexian1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:text="|"
-        android:textColor="#e1dfdf"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout8"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout7"
-        app:layout_constraintTop_toBottomOf="@+id/login_layout" />
-
-    <TextView
-        android:id="@+id/fengexian2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:text="|"
-        android:textColor="#e1dfdf"
-        android:textSize="35sp"
-        app:layout_constraintEnd_toStartOf="@+id/linearLayout9"
-        app:layout_constraintStart_toEndOf="@+id/linearLayout8"
-        app:layout_constraintTop_toBottomOf="@+id/login_layout" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout7"
-        android:layout_width="88dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_layout">
-
-        <TextView
-            android:id="@+id/datijilu"
-            android:layout_width="match_parent"
-            android:gravity="center"
-            android:layout_height="35dp"
-            android:textColor="#000000"
-            android:text="答题记录" />
-
-        <TextView
-            android:id="@+id/datijilu_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:gravity="center_horizontal"
-            android:text="0"
-            android:textColor="#848484" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout8"
-        android:layout_width="88dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toStartOf="@+id/fengexian2"
-        app:layout_constraintStart_toEndOf="@+id/fengexian1"
-        app:layout_constraintTop_toBottomOf="@+id/login_layout">
-
-        <TextView
-            android:id="@+id/zhengquelv"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:textColor="#000000"
-            android:gravity="center"
-            android:text="生涯正确率" />
-
-        <TextView
-            android:id="@+id/zhengquelv_number"
-            android:layout_width="match_parent"
-            android:layout_height="15dp"
-            android:background="#ffffff"
-            android:gravity="center_horizontal"
-            android:text="0%"
-            android:textColor="#848484" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout9"
-        android:layout_width="88dp"
-        android:layout_height="53dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_layout">
-
-        <TextView
-            android:id="@+id/paiming"
-            android:layout_width="match_parent"
-            android:layout_height="35dp"
-            android:gravity="center"
-            android:text="排名"
-            android:textColor="#000000" />
-
-        <TextView
-            android:id="@+id/paiming_number"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#ffffff"
-            android:gravity="center_horizontal"
-            android:text="0"
-            android:textColor="#848484" />
-    </LinearLayout>
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout3"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -264,7 +307,7 @@
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
             android:gravity="start"
@@ -281,13 +324,12 @@
         android:id="@+id/constraintLayout2"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
         android:background="#f1f1f1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fengexian1">
+        app:layout_constraintTop_toBottomOf="@+id/login_layout">
 
         <TextView
             android:id="@+id/textView"
@@ -307,9 +349,8 @@
         android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -339,7 +380,7 @@
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
             android:gravity="start"
@@ -368,9 +409,8 @@
         android:id="@+id/constraintLayout5"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -400,7 +440,7 @@
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
             android:gravity="start"
@@ -428,9 +468,8 @@
         android:id="@+id/constraintLayout6"
         android:layout_width="match_parent"
         android:layout_height="43dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
+        android:background="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -460,7 +499,7 @@
             android:layout_height="22dp"
             android:layout_marginBottom="8dp"
             android:layout_marginEnd="8dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
             android:background="#ffffff"
             android:gravity="start"
