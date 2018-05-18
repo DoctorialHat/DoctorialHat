@@ -45,8 +45,4 @@ dependencies {
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
     implementation'com.abbott.delayaction:libaction:1.0.1'
-//    implementation ('com.alibaba.android:vlayout:1.2.8@aar') {
-//        transitive = true
-//    }
-//    implementation 'com.qmuiteam:qmui:1.1.2'
 }

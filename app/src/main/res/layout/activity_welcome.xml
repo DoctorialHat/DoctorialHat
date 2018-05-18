@@ -53,10 +53,10 @@
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView30" />
+            app:layout_constraintTop_toBottomOf="@+id/one_sentence" />
 
         <TextView
-            android:id="@+id/textView30"
+            android:id="@+id/one_sentence"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
@@ -66,7 +66,7 @@
             android:inputType="textMultiLine"
             android:maxLines="10"
             android:singleLine="false"
-            android:text="“这个世界上，叫杨智先的不是傻逼，而是狗。”"
+            android:text=""
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView29" />

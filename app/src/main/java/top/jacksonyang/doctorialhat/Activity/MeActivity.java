@@ -22,13 +22,10 @@ import top.jacksonyang.doctorialhat.R;
 
 public class MeActivity extends AppCompatActivity {
 
-    private ConstraintLayout loginLayout;//登录注册按钮修改
     private Button aboutUs;              //关于我们 按钮
     private Button myInformation;        //我的信息 按钮
     private Button setting;              //设置 按钮
     private Button bugReflect;           //问题反馈 按钮
-    private Button login;                //登录 按钮
-    private Button register;             //注册 按钮
     private CircleImageView load_picture; //上传头像 按钮
     //上传头像时需要的变量
     protected static final int choosePicture=0;
@@ -40,13 +37,10 @@ public class MeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_me);
 
-        loginLayout = findViewById(R.id.login_layout);
         aboutUs = findViewById(R.id.about_us);
         myInformation= findViewById(R.id.my_information);
         setting= findViewById(R.id.setting);
         bugReflect= findViewById(R.id.bug_reflect);
-        login= findViewById(R.id.jump_to_login);
-        register= findViewById(R.id.jump_to_register);
         load_picture=findViewById(R.id.load_picture);
 
         //进入 问题反馈 页面
@@ -85,22 +79,7 @@ public class MeActivity extends AppCompatActivity {
             }
         });
 
-        //进入登录页面
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent meToLogin=new Intent(MeActivity.this,LoginActivity.class);
-                startActivity(meToLogin);
-            }
-        });
-        //进入注册页面
-        register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent meToRegister=new Intent(MeActivity.this,RegisterActivity.class);
-                startActivity(meToRegister);
-            }
-        });
+
         //上传头像
         load_picture.setOnClickListener(new View.OnClickListener() {
             @Override
