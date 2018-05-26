@@ -44,5 +44,5 @@ dependencies {
     implementation 'org.kymjs.kjframe:kjframe:2.6'
     implementation 'com.android.support:gridlayout-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
-    implementation'com.abbott.delayaction:libaction:1.0.1'
+    implementation 'com.abbott.delayaction:libaction:1.0.1'
 }

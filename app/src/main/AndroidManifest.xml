@@ -9,32 +9,30 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.BLUETOOTH" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
-    <!--<provider-->
-        <!--android:name="android.support.v4.content.FileProvider"-->
-        <!--android:authorities="${applicationId}.fileprovider"-->
-        <!--android:exported="false"-->
-        <!--android:grantUriPermissions="true"-->
-        <!--tools:ignore="WrongManifestParent">-->
-        <!--&lt;!&ndash;元数据&ndash;&gt;-->
-        <!--<meta-data-->
-            <!--android:name="android.support.FILE_PROVIDER_PATHS"-->
-            <!--android:resource="@xml/file_provider_paths"/>-->
-    <!--</provider>-->
-
-
+    <!-- <provider -->
+    <!-- android:name="android.support.v4.content.FileProvider" -->
+    <!-- android:authorities="${applicationId}.fileprovider" -->
+    <!-- android:exported="false" -->
+    <!-- android:grantUriPermissions="true" -->
+    <!-- tools:ignore="WrongManifestParent"> -->
+    <!-- &lt;!&ndash;元数据&ndash;&gt; -->
+    <!-- <meta-data -->
+    <!-- android:name="android.support.FILE_PROVIDER_PATHS" -->
+    <!-- android:resource="@xml/file_provider_paths"/> -->
+    <!-- </provider> -->
     <application
+        android:name="org.litepal.LitePalApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="org.litepal.LitePalApplication">
+        android:theme="@style/AppTheme">
         <activity android:name=".Activity.WelcomeActivity">
             android:screenOrientation="portrait"
             <intent-filter>
@@ -47,13 +45,13 @@
         <activity android:name=".Activity.FriendsActivity" />
         <activity android:name=".Activity.QuizActivity" />
         <activity android:name=".Activity.RegisterActivity" />
-        <activity android:name=".Activity.NewMessageActivity"/>
-        <activity android:name=".Activity.AboutUs"/>
-        <activity android:name=".Activity.BugReflectActivity"/>
-        <activity android:name=".Activity.LoginActivity"/>
-        <activity android:name=".Activity.MyInfomationActivity"/>
-        <activity android:name=".Activity.SettingActivity"/>
-
+        <activity android:name=".Activity.NewMessageActivity" />
+        <activity android:name=".Activity.AboutUs" />
+        <activity android:name=".Activity.BugReflectActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.MyInfomationActivity" />
+        <activity android:name=".Activity.SettingActivity" />
+        <activity android:name=".Activity.HomePageActivity"></activity>
     </application>
 
 </manifest>

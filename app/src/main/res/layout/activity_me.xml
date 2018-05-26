@@ -281,7 +281,7 @@
             android:layout_width="20dp"
             android:layout_height="20dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="9dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -363,10 +363,10 @@
 
         <ImageView
             android:id="@+id/imageView4"
-            android:layout_width="22dp"
-            android:layout_height="22dp"
+            android:layout_width="23dp"
+            android:layout_height="23dp"
             android:layout_marginBottom="8dp"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="7dp"
             android:layout_marginTop="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
