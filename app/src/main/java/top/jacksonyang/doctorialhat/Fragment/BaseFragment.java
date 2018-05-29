@@ -1,4 +1,4 @@
-package top.jacksonyang.doctorialhat.Activity;
+package top.jacksonyang.doctorialhat.Fragment;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;

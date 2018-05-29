@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,6 +34,8 @@ public class WelcomeActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //全屏
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_welcome);
 
         //初始化
@@ -83,7 +86,7 @@ public class WelcomeActivity extends AppCompatActivity {
                         if(parseOne(responseJSON)){
                             try{
                                 JSONObject oneJSON = new JSONObject(responseJSON);
-                                oneSentence.setText(oneJSON.getString("hitokoto"));
+                                oneSentence.setText("“ "+oneJSON.getString("hitokoto")+" ”");
                             } catch (JSONException e){
                                 e.printStackTrace();
                             }

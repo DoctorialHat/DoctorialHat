@@ -71,9 +71,6 @@ public class RegisterActivity extends AppCompatActivity {
         phone = findViewById(R.id.register_phone);
         NewPasswd = findViewById(R.id.register_password);
         captcha = findViewById(R.id.register_captcha);
-        wechat = findViewById(R.id.wechat_login);
-        oicq = findViewById(R.id.oicq_login);
-        mblog = findViewById(R.id.mblog_login);
 
         MobSDK.init(RegisterActivity.this);
 
@@ -171,7 +168,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     newUser.setWinRating(JSONResponse.getDouble("winRating"));
                                     newUser.save();
                                     Toast.makeText(RegisterActivity.this,"注册成功",Toast.LENGTH_SHORT).show();
-                                    Intent toMe = new Intent(RegisterActivity.this,MeActivity.class);
+                                    Intent toMe = new Intent(RegisterActivity.this,HomePageActivity.class);
                                     startActivity(toMe);
                                 } catch (JSONException e){
                                     e.printStackTrace();

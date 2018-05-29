@@ -1,8 +1,14 @@
+/*
+    主页存在底部导航栏分别为答题，好友和我的Fragment界面
+ */
+
 package top.jacksonyang.doctorialhat.Activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import top.jacksonyang.doctorialhat.Base.ViewPagerAdapter;
+import top.jacksonyang.doctorialhat.Fragment.BaseFragment;
 import top.jacksonyang.doctorialhat.R;
 
 import android.support.annotation.NonNull;

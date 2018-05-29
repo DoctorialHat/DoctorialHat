@@ -65,7 +65,7 @@
             android:inputType="textMultiLine"
             android:maxLines="10"
             android:singleLine="false"
-            android:text="“世界上叫杨智先的不一定是傻逼，但一定是狗。”"
+            android:text=""
             android:textSize="16sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

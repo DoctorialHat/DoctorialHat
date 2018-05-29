@@ -113,7 +113,7 @@ public class LoginActivity extends AppCompatActivity {
                                         String encodePassword = encode.encodeBySHA(mpassword);
                                         if(encodePassword.equals(UserResponse.getString("password"))){
                                             Toast.makeText(LoginActivity.this,"登陆成功",Toast.LENGTH_SHORT).show();
-                                            Intent backMe = new Intent(LoginActivity.this,MeActivity.class);
+                                            Intent backMe = new Intent(LoginActivity.this,HomePageActivity.class);
                                             startActivity(backMe);
                                         } else {
                                             Toast.makeText(LoginActivity.this,"密码错误",Toast.LENGTH_SHORT).show();

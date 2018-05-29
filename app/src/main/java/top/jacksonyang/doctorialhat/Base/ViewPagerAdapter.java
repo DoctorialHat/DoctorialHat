@@ -1,4 +1,7 @@
-package top.jacksonyang.doctorialhat.Activity;
+/*
+    底部导航栏容器
+ */
+package top.jacksonyang.doctorialhat.Base;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

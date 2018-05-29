@@ -42,8 +42,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Activity.MeActivity" />
-        <activity android:name=".Activity.FriendsActivity" />
-        <activity android:name=".Activity.QuizActivity" />
         <activity android:name=".Activity.RegisterActivity" />
         <activity android:name=".Activity.NewMessageActivity" />
         <activity android:name=".Activity.AboutUs" />
